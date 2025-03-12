@@ -497,6 +497,24 @@
 <li>按键修饰符(按下某个键):up down ctrl enter space</li>
 </ul>
 </li>
+<li><p>什么是计算属性</p>
+<ul>
+<li>它是一种属性,有“计算”这个特殊性质.每次取得它的值得时候,它并不像普通属性那样直接返回结果,而是经过一系列的计算之后再返回结果.</li>
+</ul>
+</li>
+<li><p>计算属性与watch区别</p>
+<ul>
+<li>计算属性是依赖于缓存的,当依赖的值发生改变才会触发.而watch是当watch监听的值发生改变就会被调用相应方法</li>
+<li>计算属性适合在数据展示时做一些处理</li>
+</ul>
+</li>
+<li><p>Vue如何定义一个过滤器</p>
+<ul>
+<li>`全局过滤器使用Vue.filter('过滤器名字',function(val){return 返回的内容})在app.vue中</li>
+<li>局部过滤器使用filters('',function(val){})在data同级</li>
+<li>通过 { { 要过滤的数据|过滤器名 } }来调用</li>
+</ul>
+</li>
 <li><p>Vue循环的key作用</p>
 <ul>
 <li>key的作用主要是为了高效的更新虚拟DOM,是遍历数组或元素中的唯一标识,增加或删减元素时,通过key判断是否是之前的元素,如果是则直接会复用该标签,不会将所有标签重新删除和创建,只会重新渲染数据,然后再创建新的元素直到数据渲染完为止</li>
@@ -619,6 +637,11 @@
 <li>v-on 绑定事件</li>
 </ul>
 </li>
+<li><p>v-on可以绑定多个方法吗</p>
+<ul>
+<li>可以 使用v-on"{ click:dbclick,mouseomve:mouseclick }"</li>
+</ul>
+</li>
 <li><p>Vue-cli中如何自定义指令</p>
 <ul>
 <li>自定义指令有5个钩子;<ul>
@@ -629,13 +652,18 @@
 <li>unbind:解除指令和元素的绑定,只执行一次</li>
 </ul>
 </li>
-<li>如果时局部指令使用directives:{自定义指令的名字:{钩子函数(el){操作逻辑}}}写在data同级</li>
-<li>如果时全局使用Vue.directive('自定义的名字',{钩子函数(el){操作逻辑}})</li>
+<li>如果时局部指令使用directives:{ 自定义指令的名字:{ 钩子函数(el){ 操作逻辑 } } }写在data同级</li>
+<li>如果时全局使用Vue.directive('自定义的名字',{钩子函数(el){ 操作逻辑 } })</li>
 </ul>
 </li>
 <li><p>Watch请简述</p>
 <ul>
 <li>监听data模型数据 当模型数据改变的时候就会触发;watch初始化的时候不会运行,只有数据被改变之后才会运行</li>
+</ul>
+</li>
+<li><p>v-text与区别{ { } }</p>
+<ul>
+<li>{ { } }是模板插值,v-text是指令,模板插值 { { } } 如果数据过多可能会把大括号显示出来(屏幕闪动)需要使用v-cloak指令</li>
 </ul>
 </li>
 <li><p>对vue中keep-alive的理解</p>
