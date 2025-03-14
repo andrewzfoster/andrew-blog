@@ -274,7 +274,7 @@
 <blockquote>
 <p>输入：”Vue is a progressive framework”<br>输出：[“a”, “is”, “Vue”, “framework”, “progressive”]</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;is&quot;</span>, <span class="string">&quot;Vue&quot;</span>, <span class="string">&quot;framework&quot;</span>, <span class="string">&quot;progressive&quot;</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;is&quot;</span>, <span class="string">&quot;Vue&quot;</span>, <span class="string">&quot;framework&quot;</span>, <span class="string">&quot;progressive&quot;</span>]</span><br><span class="line">data.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>).<span class="title function_">sort</span>( <span class="function">(<span class="params">a,b</span>) =&gt;</span> a.<span class="property">length</span> - b.<span class="property">length</span> || a.<span class="title function_">localeCompare</span>(b) )</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>找出数组中最长的字符串（如果有多个相同长度的，返回第一个）</p>
 <blockquote>
