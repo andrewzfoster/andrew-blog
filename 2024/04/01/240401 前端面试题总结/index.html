@@ -853,7 +853,7 @@
 <h4 id="VUE3"><a href="#VUE3" class="headerlink" title="VUE3"></a>VUE3</h4><ul>
 <li><p>VUE3的数据劫持原理</p>
 <ul>
-<li>VUE3采用ES6的Proxy来监听数据的变化,这是一种更彻底的方式,因为它解决了VUE2中使用Object.defineProperty但不能监听数组和对象的增删的问题,Vue2处理数组和对象时,会修改数组的原型的方法,对象的话会通过Vue.set和Vue.delete去手动更新视图。而VUE3中Proxy直接就可以监听对象和数组,不用再这样曲线操作</li>
+<li>VUE3采用ES6的Proxy来监听数据的变化,它可以监听整个数据,而不是像Object.defineProperty 只能监听单个属性。 它解决了VUE2中使用Object.defineProperty但不能监听数组和对象的增删的问题,Vue2处理数组和对象时,会修改数组的原型的方法,对象的话会通过Vue.set和Vue.delete去手动更新视图。而VUE3中Proxy直接就可以监听对象和数组,不用再这样曲线操作</li>
 </ul>
 </li>
 <li><p>Vue3 组件间如何传值？有哪些方式？</p>
