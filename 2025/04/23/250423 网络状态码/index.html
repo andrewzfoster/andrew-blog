@@ -178,6 +178,22 @@
 <li>客户端的缓存的资源内容是当前服务器最新，无需再次请求。</li>
 <li>服务器没有返回任何内容，但客户端的缓存的资源内容是当前服务器最新，无需再次请求。</li>
 </ol>
+<ul>
+<li><p>301: 永久重定向（搜索引擎会更新链接）</p>
+</li>
+<li><p>302: 临时重定向（搜索引擎保留原链接）</p>
+</li>
+<li><p>303: 临时重定向（强制 GET 请求）</p>
+</li>
+<li><p>307: 临时重定向（保持原 HTTP 方法）</p>
+</li>
+<li><p>401 Unauthorized 响应状态码的含义是：</p>
+</li>
+</ul>
+<ol>
+<li>客户端没有权限访问资源，需要提供身份验证信息。</li>
+<li>服务器没有返回任何内容，但客户端没有权限访问资源，需要提供身份验证信息。</li>
+</ol>
 </div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
         var options1 = {
             selector: '.gallery-item'
