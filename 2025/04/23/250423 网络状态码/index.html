@@ -168,32 +168,25 @@
     <div class="post-md">
         
             
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#304-Not-Modified"><span class="post-toc-text">304 Not Modified</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E5%9C%BA%E6%99%AF%E7%9A%84%E9%94%99%E8%AF%AF%E7%A0%81"><span class="post-toc-text">常用场景的错误码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E7%9B%B8%E5%85%B3%EF%BC%9A"><span class="post-toc-text">用户认证相关：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%B5%84%E6%BA%90%E7%9B%B8%E5%85%B3%EF%BC%9A"><span class="post-toc-text">资源相关：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%AF%B7%E6%B1%82%E6%A0%BC%E5%BC%8F%E7%9B%B8%E5%85%B3%EF%BC%9A"><span class="post-toc-text">请求格式相关：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="post-toc-text">服务器问题：</span></a></li></ol></li></ol>
             
         
-        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h3 id="304-Not-Modified"><a href="#304-Not-Modified" class="headerlink" title="304 Not Modified"></a>304 Not Modified</h3><ul>
-<li>304 Not Modified 响应状态码的含义是：</li>
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h3 id="常用场景的错误码"><a href="#常用场景的错误码" class="headerlink" title="常用场景的错误码"></a>常用场景的错误码</h3><h4 id="用户认证相关："><a href="#用户认证相关：" class="headerlink" title="用户认证相关："></a>用户认证相关：</h4><ul>
+<li>401 Unauthorized：未登录或登录信息无效。</li>
+<li>403 Forbidden：已登录，但无权限访问资源。</li>
 </ul>
-<ol>
-<li>客户端的缓存的资源内容是当前服务器最新，无需再次请求。</li>
-<li>服务器没有返回任何内容，但客户端的缓存的资源内容是当前服务器最新，无需再次请求。</li>
-</ol>
-<ul>
-<li><p>301: 永久重定向（搜索引擎会更新链接）</p>
-</li>
-<li><p>302: 临时重定向（搜索引擎保留原链接）</p>
-</li>
-<li><p>303: 临时重定向（强制 GET 请求）</p>
-</li>
-<li><p>307: 临时重定向（保持原 HTTP 方法）</p>
-</li>
-<li><p>401 Unauthorized 响应状态码的含义是：</p>
-</li>
+<h4 id="资源相关："><a href="#资源相关：" class="headerlink" title="资源相关："></a>资源相关：</h4><ul>
+<li>404 Not Found：资源不存在。</li>
+<li>409 Conflict：资源冲突，例如重复的用户名。</li>
 </ul>
-<ol>
-<li>客户端没有权限访问资源，需要提供身份验证信息。</li>
-<li>服务器没有返回任何内容，但客户端没有权限访问资源，需要提供身份验证信息。</li>
-</ol>
+<h4 id="请求格式相关："><a href="#请求格式相关：" class="headerlink" title="请求格式相关："></a>请求格式相关：</h4><ul>
+<li>400 Bad Request：请求参数错误。</li>
+<li>422 Unprocessable Entity：请求数据格式正确，但内容有问题。</li>
+</ul>
+<h4 id="服务器问题："><a href="#服务器问题：" class="headerlink" title="服务器问题："></a>服务器问题：</h4><ul>
+<li>500 Internal Server Error：服务器内部错误。</li>
+<li>503 Service Unavailable：服务器暂时不可用。</li>
+</ul>
 </div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
         var options1 = {
             selector: '.gallery-item'
