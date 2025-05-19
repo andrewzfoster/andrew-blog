@@ -168,10 +168,275 @@
     <div class="post-md">
         
             
-                
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UNION-ALL"><span class="post-toc-text">UNION ALL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#GROUP-BY"><span class="post-toc-text">GROUP BY</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AS"><span class="post-toc-text">AS</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WITH-RECURSIVE"><span class="post-toc-text">WITH RECURSIVE</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OVER"><span class="post-toc-text">OVER</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#PARTITION-BY"><span class="post-toc-text">PARTITION BY</span></a></li></ol>
             
         
-        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"></div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h4 id="UNION-ALL"><a href="#UNION-ALL" class="headerlink" title="UNION ALL"></a>UNION ALL</h4><ul>
+<li><p>UNION 会去重，UNION ALL 不会，性能更高，适合递归查询。</p>
+</li>
+<li><p>将两个或多个查询的结果拼接在一起（不去重）。</p>
+</li>
+<li><p>例子：把 employees 和 managers 中的所有 name 合并（包括重复项）。</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>2</td>
+<td>David</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>2</td>
+<td>David</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>结果</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>name</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Alice</td>
+<td></td>
+</tr>
+<tr>
+<td>Bob</td>
+<td></td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td></td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>← 重复出现</td>
+</tr>
+<tr>
+<td>David</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> managers;</span><br></pre></td></tr></table></figure>
+
+<h4 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h4><ul>
+<li><p>将结果按照某个字段“分组”，通常配合聚合函数使用（如 COUNT()、SUM() 等）。</p>
+</li>
+<li><p>例子</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>id</th>
+<th>user_id</th>
+<th>org_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a1</td>
+<td>u1</td>
+<td>o1</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>u1</td>
+<td>o2</td>
+</tr>
+<tr>
+<td>a3</td>
+<td>u2</td>
+<td>o1</td>
+</tr>
+<tr>
+<td>a4</td>
+<td>u3</td>
+<td>o3</td>
+</tr>
+<tr>
+<td>a5</td>
+<td>u1</td>
+<td>o3</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>结果</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>user_id</th>
+<th>org_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>u3</td>
+<td>1</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> user_id, <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">as</span> org_count</span><br><span class="line"><span class="keyword">FROM</span> user_org</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> user_id;</span><br></pre></td></tr></table></figure>
+
+<h4 id="AS"><a href="#AS" class="headerlink" title="AS"></a>AS</h4><ul>
+<li>不区分大小写(as AS 均可) 可省略</li>
+<li>给某个字段或表起一个别名。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> id <span class="keyword">AS</span> userId <span class="keyword">FROM</span> <span class="keyword">user</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> user_login_log <span class="keyword">AS</span> log</span><br><span class="line"><span class="comment">-- AS 可省略</span></span><br><span class="line"><span class="keyword">SELECT</span> id userId <span class="keyword">FROM</span> <span class="keyword">user</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> user_login_log log</span><br></pre></td></tr></table></figure>
+
+<h4 id="WITH-RECURSIVE"><a href="#WITH-RECURSIVE" class="headerlink" title="WITH RECURSIVE"></a>WITH RECURSIVE</h4><ul>
+<li><p>用于 递归查询 的关键语法，主要用于处理 树状结构 或 图状结构 数据, 可以从某个节点往下找子节点，或从某个节点往上找父节点，直到找完为止。</p>
+</li>
+<li><p>例子</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>parent_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>总公司</td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>技术部</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>前端组</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>后端组</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>产品部</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>设计组</td>
+<td>5</td>
+</tr>
+<tr>
+<td>7</td>
+<td>交互组</td>
+<td>5</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>结果:从 技术部（id&#x3D;2） 向下，查出其所有子部门（包括子孙）</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>parent_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>技术部</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>前端组</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>后端组</td>
+<td>2</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WITH</span> <span class="keyword">RECURSIVE</span> org_tree <span class="keyword">AS</span> (</span><br><span class="line">  <span class="comment">-- 初始节点：技术部</span></span><br><span class="line">  <span class="keyword">SELECT</span> id, name, parent_id <span class="keyword">FROM</span> org <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">-- 递归部分：找所有子部门</span></span><br><span class="line">  <span class="keyword">SELECT</span> o.id, o.name, o.parent_id</span><br><span class="line">  <span class="keyword">FROM</span> org o</span><br><span class="line">  <span class="keyword">JOIN</span> org_tree ot <span class="keyword">ON</span> o.parent_id <span class="operator">=</span> ot.id</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> org_tree;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>结果:从 前端组（id&#x3D;3） 向上，查出其所有上级（直到根）</li>
+<li><table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>parent_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>前端组</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>技术部</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>总公司</td>
+<td>NULL</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WITH</span> <span class="keyword">RECURSIVE</span> parent_chain <span class="keyword">AS</span> (</span><br><span class="line">  <span class="comment">-- 初始节点：前端组</span></span><br><span class="line">  <span class="keyword">SELECT</span> id, name, parent_id <span class="keyword">FROM</span> org <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">-- 递归部分：找所有父级</span></span><br><span class="line">  <span class="keyword">SELECT</span> o.id, o.name, o.parent_id</span><br><span class="line">  <span class="keyword">FROM</span> org o</span><br><span class="line">  <span class="keyword">JOIN</span> parent_chain pc <span class="keyword">ON</span> o.id <span class="operator">=</span> pc.parent_id</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> parent_chain;</span><br></pre></td></tr></table></figure>
+
+<h4 id="OVER"><a href="#OVER" class="headerlink" title="OVER"></a>OVER</h4><ul>
+<li>用于窗口函数中，表示“这个函数作用在哪一块数据上”。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> user_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> login_time <span class="keyword">DESC</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="PARTITION-BY"><a href="#PARTITION-BY" class="headerlink" title="PARTITION BY"></a>PARTITION BY</h4><ul>
+<li>是 OVER() 的一部分，用来划分窗口的“分区”，就像 GROUP BY 一样，但不聚合。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 聚合（GROUP BY 后只保留一条记录）</span></span><br><span class="line"><span class="keyword">SELECT</span> user_id, <span class="built_in">MAX</span>(login_time)</span><br><span class="line"><span class="keyword">FROM</span> user_login_log</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> user_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 窗口函数（保留所有记录，加上“分组内编号”）</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span>,</span><br><span class="line">  <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> user_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> login_time <span class="keyword">DESC</span>) <span class="keyword">as</span> rn</span><br><span class="line"><span class="keyword">FROM</span> user_login_log;</span><br></pre></td></tr></table></figure>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
         var options1 = {
             selector: '.gallery-item'
         };

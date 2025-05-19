@@ -221,10 +221,76 @@
 <h4 id="三、窗口函数（如查每个用户最新登录时间）"><a href="#三、窗口函数（如查每个用户最新登录时间）" class="headerlink" title="三、窗口函数（如查每个用户最新登录时间）"></a>三、窗口函数（如查每个用户最新登录时间）</h4><ul>
 <li><p>例子场景：你有一个 user_login_log 表，想获取每个用户最近的一次登录时间。</p>
 </li>
+<li><table>
+<thead>
+<tr>
+<th>user_id</th>
+<th>login_time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>2024-01-01 10:00:00</td>
+</tr>
+<tr>
+<td>A</td>
+<td>2024-01-02 08:00:00</td>
+</tr>
+<tr>
+<td>A</td>
+<td>2024-01-03 09:00:00</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2024-01-01 09:00:00</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2024-01-03 11:00:00</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>结果</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>user_id</th>
+<th>login_time</th>
+<th>login_order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>2024-01-01 10:00:00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>A</td>
+<td>2024-01-02 08:00:00</td>
+<td>2</td>
+</tr>
+<tr>
+<td>A</td>
+<td>2024-01-03 09:00:00</td>
+<td>3</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2024-01-01 09:00:00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2024-01-03 11:00:00</td>
+<td>2</td>
+</tr>
+</tbody></table>
+</li>
 <li><p>Prisma 的限制： Prisma 不支持窗口函数（如 ROW_NUMBER(), RANK(), OVER() 等）。</p>
 </li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> user_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> login_time <span class="keyword">DESC</span>) <span class="keyword">as</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> user_login_log</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> user_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> login_time <span class="keyword">DESC</span>) <span class="keyword">as</span> login_order</span><br><span class="line">  <span class="keyword">FROM</span> user_login_log</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
 <h4 id="四、动态查询（字段名动态、IN-查询动态构造）"><a href="#四、动态查询（字段名动态、IN-查询动态构造）" class="headerlink" title="四、动态查询（字段名动态、IN 查询动态构造）"></a>四、动态查询（字段名动态、IN 查询动态构造）</h4><ul>
 <li>例子场景：用户传了字段名和字段值做筛选，比如 “email”、”phone” 等字段名是不固定的。</li>
