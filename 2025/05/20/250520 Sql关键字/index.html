@@ -168,10 +168,35 @@
     <div class="post-md">
         
             
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UNION-ALL"><span class="post-toc-text">UNION ALL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#GROUP-BY"><span class="post-toc-text">GROUP BY</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AS"><span class="post-toc-text">AS</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WITH-RECURSIVE"><span class="post-toc-text">WITH RECURSIVE</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OVER"><span class="post-toc-text">OVER</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#PARTITION-BY"><span class="post-toc-text">PARTITION BY</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JOIN-INNER-JOIN"><span class="post-toc-text">JOIN(INNER JOIN)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#LEFT-JOIN"><span class="post-toc-text">LEFT JOIN</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RIGHT-JOIN"><span class="post-toc-text">RIGHT JOIN</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#IN"><span class="post-toc-text">IN</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ON"><span class="post-toc-text">ON</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UNION-ALL"><span class="post-toc-text">UNION ALL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#GROUP-BY"><span class="post-toc-text">GROUP BY</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AS"><span class="post-toc-text">AS</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WITH-RECURSIVE"><span class="post-toc-text">WITH RECURSIVE</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OVER"><span class="post-toc-text">OVER</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#PARTITION-BY"><span class="post-toc-text">PARTITION BY</span></a></li></ol>
             
         
-        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h4 id="UNION-ALL"><a href="#UNION-ALL" class="headerlink" title="UNION ALL"></a>UNION ALL</h4><ul>
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h4 id="JOIN-INNER-JOIN"><a href="#JOIN-INNER-JOIN" class="headerlink" title="JOIN(INNER JOIN)"></a>JOIN(INNER JOIN)</h4><ul>
+<li>只保留两张表中都匹配的记录。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> users u</span><br><span class="line"><span class="keyword">JOIN</span> orders o <span class="keyword">ON</span> u.id <span class="operator">=</span> o.user_id;</span><br></pre></td></tr></table></figure>
+
+<h4 id="LEFT-JOIN"><a href="#LEFT-JOIN" class="headerlink" title="LEFT JOIN"></a>LEFT JOIN</h4><ul>
+<li>以左表为主，保留左表所有记录，即使右表中没有匹配的项。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> users u</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders o <span class="keyword">ON</span> u.id <span class="operator">=</span> o.user_id;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RIGHT-JOIN"><a href="#RIGHT-JOIN" class="headerlink" title="RIGHT JOIN"></a>RIGHT JOIN</h4><ul>
+<li>以右表为主，保留右表所有记录，即使左表中没有匹配的项。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> users u</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> orders o <span class="keyword">ON</span> u.id <span class="operator">=</span> o.user_id;</span><br></pre></td></tr></table></figure>
+
+<h4 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h4><ul>
+<li>是用于 过滤（WHERE 条件） 的一种语法，用来判断某个值是否属于一个给定的列表。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM users</span><br><span class="line">WHERE id IN (1, 2, 3);</span><br></pre></td></tr></table></figure>
+
+<h4 id="ON"><a href="#ON" class="headerlink" title="ON"></a>ON</h4><ul>
+<li>用于 JOIN 连接中，用来指定 两个表之间关联的条件。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> orders o</span><br><span class="line"><span class="keyword">JOIN</span> users u <span class="keyword">ON</span> o.user_id <span class="operator">=</span> u.id;</span><br></pre></td></tr></table></figure>
+
+<h4 id="UNION-ALL"><a href="#UNION-ALL" class="headerlink" title="UNION ALL"></a>UNION ALL</h4><ul>
 <li><p>UNION 会去重，UNION ALL 不会，性能更高，适合递归查询。</p>
 </li>
 <li><p>将两个或多个查询的结果拼接在一起（不去重）。</p>
