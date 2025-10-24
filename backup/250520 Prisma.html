@@ -151,16 +151,9 @@
                         <div class="post-main">
 
     
-        <div class="post-main-title">
-            Prisma
-        </div>
-      
-    
 
     <div class="post-md">
         
-            
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Prisma-%E5%9F%BA%E7%A1%80"><span class="post-toc-text">Prisma 基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="post-toc-text">常用命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93"><span class="post-toc-text">查询语法总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#%E6%9F%A5%E6%89%BE"><span class="post-toc-text">查找</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A%EF%BC%88%E5%85%B3%E8%81%94%E8%A1%A8%EF%BC%89"><span class="post-toc-text">多对多（关联表）</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Prisma-%E8%BF%9B%E9%98%B6"><span class="post-toc-text">Prisma 进阶</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="post-toc-text">分页查询</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="post-toc-text">事务处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%81%9A%E5%90%88%E5%92%8C%E5%88%86%E7%BB%84"><span class="post-toc-text">聚合和分组</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Prisma-%E5%81%9A%E4%B8%8D%E5%88%B0%E6%88%96%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E6%83%85%E5%86%B5"><span class="post-toc-text">Prisma 做不到或不推荐的情况</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%A6%82%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%AA%E7%BB%84%E7%BB%87%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%90%E7%BB%84%E7%BB%87%EF%BC%89"><span class="post-toc-text">一、递归查询（如查找某个组织的所有子组织）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%8C%E3%80%81%E5%A4%8D%E6%9D%82%E7%9A%84%E5%AD%90%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%A6%82%E8%81%9A%E5%90%88%E5%90%8E%E5%86%8D%E8%BF%87%E6%BB%A4%EF%BC%89"><span class="post-toc-text">二、复杂的子查询（如聚合后再过滤）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%89%E3%80%81%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%EF%BC%88%E5%A6%82%E6%9F%A5%E6%AF%8F%E4%B8%AA%E7%94%A8%E6%88%B7%E6%9C%80%E6%96%B0%E7%99%BB%E5%BD%95%E6%97%B6%E9%97%B4%EF%BC%89"><span class="post-toc-text">三、窗口函数（如查每个用户最新登录时间）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9B%9B%E3%80%81%E5%8A%A8%E6%80%81%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%AD%97%E6%AE%B5%E5%90%8D%E5%8A%A8%E6%80%81%E3%80%81IN-%E6%9F%A5%E8%AF%A2%E5%8A%A8%E6%80%81%E6%9E%84%E9%80%A0%EF%BC%89"><span class="post-toc-text">四、动态查询（字段名动态、IN 查询动态构造）</span></a></li></ol></li></ol></li></ol>
             
         
         <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="Prisma-基础"><a href="#Prisma-基础" class="headerlink" title="Prisma 基础"></a>Prisma 基础</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npx prisma init           # 初始化 Prisma 项目</span><br><span class="line">npx prisma migrate dev    # 应用并记录迁移</span><br><span class="line">npx prisma generate       # 生成 prisma client</span><br><span class="line">npx prisma studio         # 打开数据库可视化界面</span><br><span class="line">npx prisma db seed        # 运行种子脚本</span><br></pre></td></tr></table></figure>
@@ -300,22 +293,6 @@
     <div class="post-meta">
         <i>
         
-            <span>2025-05-20</span>
-            
-                <span>该篇文章被 Andrew</span>
-            
-            
-             
-                <span>归为分类:
-                    
-                    
-                        <a href='/categories/%E6%8A%80%E6%9C%AF/'>
-                            技术
-                        </a>
-                    
-                </span>
-            
-        
         </i>
     </div>
     <br>
@@ -339,7 +316,7 @@
                     <div class="footer">
     
         <span> 
-            © 2023-2024 
+            © 2023-2025 
 
             
                 
