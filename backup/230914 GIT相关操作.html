@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="GIT及NPM操作总结" />
+    <meta name="description" content="GIT相关操作" />
     <meta name="hexo-theme-A4" content="v1.9.0" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
     <title>Andrew&#39;s Home</title>
@@ -151,16 +151,9 @@
                         <div class="post-main">
 
     
-        <div class="post-main-title">
-            GIT及NPM操作总结
-        </div>
-      
-    
 
     <div class="post-md">
         
-            
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GIT%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C"><span class="post-toc-text">GIT相关操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%8E%B7%E5%8F%96-ssh-%E5%AF%86%E9%92%A5-key-%E5%B9%B6%E9%85%8D%E7%BD%AE"><span class="post-toc-text">获取 ssh 密钥 key 并配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AE-github-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-text">配置 github 代理服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="post-toc-text">远程源操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NPM%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C"><span class="post-toc-text">NPM相关操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="post-toc-text">代理配置</span></a></li></ol></li></ol>
             
         
         <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="GIT相关操作"><a href="#GIT相关操作" class="headerlink" title="GIT相关操作"></a>GIT相关操作</h1><h2 id="获取-ssh-密钥-key-并配置"><a href="#获取-ssh-密钥-key-并配置" class="headerlink" title="获取 ssh 密钥 key 并配置"></a>获取 ssh 密钥 key 并配置</h2><p><strong>1.检查自己是否已经生成密钥</strong><br>密钥文件夹位置：<code>C:\Users\Administrator\.ssh</code><br>如果存在 id_rsa(私有密钥)和 id_rsa.pub(公有密钥)则说明已经生成过,可以通过文本直接打开公有密钥并复制或选择生成新的密钥<br><strong>2.生成密钥</strong><br>检查自己是否已设置过 git 用户名及邮箱,如果无查询结果,需要先配置用户名及邮箱</p>
@@ -230,18 +223,7 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote remove 远程源名称如：origin</span><br></pre></td></tr></table></figure>
 
 <p><strong>添加远程源</strong></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin <span class="string">&quot;远程源地址&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="NPM相关操作"><a href="#NPM相关操作" class="headerlink" title="NPM相关操作"></a>NPM相关操作</h1><h2 id="代理配置"><a href="#代理配置" class="headerlink" title="代理配置"></a>代理配置</h2><ul>
-<li>使用以下命令设置 HTTP 和 HTTPS 代理：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> proxy http://127.0.0.1:8080</span><br><span class="line">npm config <span class="built_in">set</span> https-proxy http://127.0.0.1:8080</span><br></pre></td></tr></table></figure></li>
-<li>配置国内镜像源(淘宝源)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置淘宝源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br><span class="line"><span class="comment"># 恢复npm官方源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br><span class="line"><span class="comment"># 查看当前源</span></span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure></li>
-<li>使用单次代理<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;package-name&gt; --proxy=http://127.0.0.1:7890 --https-proxy=http://127.0.0.1:7890</span><br></pre></td></tr></table></figure></li>
-</ul>
-</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin <span class="string">&quot;远程源地址&quot;</span></span><br></pre></td></tr></table></figure></div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
         var options1 = {
             selector: '.gallery-item'
         };
@@ -251,22 +233,6 @@
 
     <div class="post-meta">
         <i>
-        
-            <span>2023-09-14</span>
-            
-                <span>该篇文章被 Andrew</span>
-            
-            
-             
-                <span>归为分类:
-                    
-                    
-                        <a href='/categories/%E6%80%BB%E7%BB%93/'>
-                            总结
-                        </a>
-                    
-                </span>
-            
         
         </i>
     </div>
