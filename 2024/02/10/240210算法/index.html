@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
     <meta name="description" content="算法" />
-    <meta name="hexo-theme-A4" content="v1.9.0" />
+    <meta name="hexo-theme-A4" content="v2.0.0" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
-    <title>Andrew&#39;s Home</title>
+    <title>安德鲁</title>
 
     
         
@@ -56,19 +56,42 @@
     
     
    
-<link rel="stylesheet" href="/css/lightgallery.min.css">
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
 
 
+   
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css' /> 
 <meta name="generator" content="Hexo 7.1.1"></head>
     
     
+
     
+    
+
+
+
+    
+
+    
+    
+
+
+
+
+    
+    
+
+
     <body>
         <script src="/js/darkmode-js.min.js"></script>
         
         <script>
-            const dkOptions = {
-                bottom: '53px', // default: '32px'
+            const options = {
+                bottom: '40px', // default: '32px'
                 right: 'unset', // default: '32px'
                 left: '42px', // default: 'unset'
                 time: '0.3s', // default: '0.3s'
@@ -80,19 +103,21 @@
                 label: '🌓', // default: ''
                 autoMatchOsTheme: true // default: true
             }
-            const darkmode = new Darkmode(dkOptions);
+            const darkmode = new Darkmode(options);
             darkmode.showWidget();
         </script>
         
         
-            <div class="left-toc-container">
-                <nav id="toc" class="bs-docs-sidebar"></nav>
-            </div>
+            
+                <div class="left-toc-container">
+                    <nav id="toc" class="bs-docs-sidebar"></nav>
+                </div>
+            
         
         <div class="paper">
+
             
-            
-            
+
             
                 <div class="shadow-drop-2-bottom paper-main">
                     
@@ -100,14 +125,26 @@
 
 <div class="header">
     <div class="header-container">
-        <img style="
-        width: 56px;
-        height: auto;border-radius: 6px;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/favicon.webp" width="10%"></img>
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 0; 
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/favicon.webp" 
+        />
         <div class="header-content">
-            <a class="logo" href="/">Andrew</a> 
+            <a class="logo" href="/">安德鲁</a> 
             <span class="description"></span> 
         </div>
-        
     </div>
     
    
@@ -130,31 +167,63 @@
             
         
             
-                <li><a href="/message/">留言</a></li>
-            
-        
-            
                 <li><a href="/about/">关于</a></li>
             
         
     </ul>
-</div> 
-        
+</div>
+
                     
                     
 
                     
                     
-                    
+
                     <!--说明是文章post页面-->
                     
                         <div class="post-main">
+    
 
     
-        <div class="post-main-title">
-            算法
-        </div>
+        
+            
+                <div class="post-main-title">
+                    算法
+                </div>
+            
+        
       
+    
+
+    
+
+        
+            <div class="post-head-meta-left">
+        
+                
+                    <span>最近更新：2025-10-25</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：5.6k</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：24分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
     
 
     <div class="post-md">
@@ -163,7 +232,7 @@
                 <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%97%E6%B3%95"><span class="post-toc-text">算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%80%E8%BF%B0"><span class="post-toc-text">数据结构简述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84"><span class="post-toc-text">数组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E4%B8%8E%E9%93%BE%E8%A1%A8"><span class="post-toc-text">栈、队列与链表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="post-toc-text">二叉树</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86"><span class="post-toc-text">二叉树的递归遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%A1%A1%E9%87%8F"><span class="post-toc-text">算法的复杂度衡量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C"><span class="post-toc-text">前端数据操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%94%E7%94%A8"><span class="post-toc-text">数组的应用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%BA%94%E7%94%A8"><span class="post-toc-text">字符串的应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%98"><span class="post-toc-text">链表专题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%93%BE%E8%A1%A8%E7%9A%84%E5%BA%94%E7%94%A8"><span class="post-toc-text">链表的应用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%E4%B8%8E%E5%A4%9A%E6%8C%87%E9%92%88"><span class="post-toc-text">快慢指针与多指针</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8"><span class="post-toc-text">环形链表</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97"><span class="post-toc-text">栈与队列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%81%8D%E5%8E%86%E4%B8%93%E9%A2%98"><span class="post-toc-text">遍历专题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%98"><span class="post-toc-text">二叉树专题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98"><span class="post-toc-text">排序算法专题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B8%93%E9%A2%98"><span class="post-toc-text">动态规划专题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%B4%E9%83%A8%E4%BC%81%E4%B8%9A%E7%9C%9F%E9%A2%98%E8%AE%AD%E7%BB%83"><span class="post-toc-text">头部企业真题训练</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%B6%E5%AE%83"><span class="post-toc-text">其它</span></a></li></ol></li></ol>
             
         
-        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="数据结构简述"><a href="#数据结构简述" class="headerlink" title="数据结构简述"></a>数据结构简述</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><ul>
+        <div class=".article-gallery"><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="数据结构简述"><a href="#数据结构简述" class="headerlink" title="数据结构简述"></a>数据结构简述</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><ul>
 <li>数组<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不同的创建方式</span></span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">7</span>).<span class="title function_">fill</span>(<span class="number">1</span>); <span class="comment">// 创建一个长度为7的数组并填入1</span></span><br><span class="line"><span class="comment">// 数组的访问</span></span><br><span class="line">arr1[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// 数组的常见遍历方法</span></span><br><span class="line">arr.<span class="title function_">map</span>(<span class="function">(<span class="params">v, i</span>) =&gt;</span> &#123;&#125;);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr1.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  arr1[i];</span><br><span class="line">&#125;</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function">(<span class="params">v, i</span>) =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure></li>
 <li>二维数组(矩阵)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不同的创建方式</span></span><br><span class="line"><span class="keyword">let</span> arr1 = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr1.<span class="property">lengh</span>; i++) &#123;</span><br><span class="line">  arr1[i] = [];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用fill生成二维数组 ❌ 存在引用类型的指向同一数据问题</span></span><br><span class="line"><span class="keyword">const</span> arr2 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">7</span>).<span class="title function_">fill</span>([]);</span><br><span class="line">arr2[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; <span class="comment">// 当访问arr2时;arr2的一层值都为同一数组的索引，所以当改其中一项时，全部被修改</span></span><br></pre></td></tr></table></figure></li>
 <li>小结<ul>
@@ -388,12 +457,7 @@
 <h3 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h3><h3 id="遍历专题"><a href="#遍历专题" class="headerlink" title="遍历专题"></a>遍历专题</h3><h3 id="二叉树专题"><a href="#二叉树专题" class="headerlink" title="二叉树专题"></a>二叉树专题</h3><h3 id="排序算法专题"><a href="#排序算法专题" class="headerlink" title="排序算法专题"></a>排序算法专题</h3><h3 id="动态规划专题"><a href="#动态规划专题" class="headerlink" title="动态规划专题"></a>动态规划专题</h3><h3 id="头部企业真题训练"><a href="#头部企业真题训练" class="headerlink" title="头部企业真题训练"></a>头部企业真题训练</h3><h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
 <li>算法面试评价逻辑</li>
 </ul>
-</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
-        var options1 = {
-            selector: '.gallery-item'
-        };
-        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1);
-        }</script>
+</div>
     </div>
 
     <div class="post-meta">
@@ -401,7 +465,7 @@
         
             <span>2024-02-10</span>
             
-                <span>该篇文章被 Andrew</span>
+                <span>该篇文章被 安德鲁</span>
             
             
              
@@ -419,10 +483,23 @@
     </div>
     <br>
     
-    <!-- <div class="post-footer-pre-next">
-        <span>上一篇：<a href=""></a></span>
-        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
-    </div> -->
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+                    <span>上一篇：<a href='/2024/02/26/240226%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/'>设计模式</a></span>
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2023/10/24/231024%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/">工作经验总结</a>
+                    </span>
+                
+            </div>
+    
+        
+    
 
     
         
@@ -432,27 +509,29 @@
 
 
 
-                                      
+
                     
-                    
+
                     <div class="footer">
     
         <span> 
-            © 2023-2025 
+             
 
             
                 
 
             
         </span>
+       
     
 </div>
+
+
+
 <!--这是指一条线往下的内容-->
 <div class="footer-last">
     
             <span>永远相信美好的事情即将发生</span>
-            
-                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
             
     
 </div>
@@ -491,14 +570,59 @@
 
 
 
-<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
 
 
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
 
                 </div>
             
             
-                <!-- 回到顶部的按钮-->  
+                <!-- 回到顶部的按钮-->
                 <div class="progress-wrap shadow-drop-2-bottom">
                     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
@@ -506,7 +630,7 @@
                 </div>
             
             
-                <!-- 返回的按钮-->  
+                <!-- 返回的按钮-->
                 <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
                     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
@@ -515,3 +639,9 @@
             
     </body>
 </html>
+<script src="/js/emojiHandler.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        wrapEmojis('.paper');
+    });
+</script>

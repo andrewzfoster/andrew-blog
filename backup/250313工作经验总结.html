@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
     <meta name="description" content="工作经验总结" />
-    <meta name="hexo-theme-A4" content="v1.9.0" />
+    <meta name="hexo-theme-A4" content="v2.0.0" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
-    <title>Andrew&#39;s Home</title>
+    <title>安德鲁</title>
 
     
         
@@ -56,19 +56,42 @@
     
     
    
-<link rel="stylesheet" href="/css/lightgallery.min.css">
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
 
 
+   
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css' /> 
 <meta name="generator" content="Hexo 7.1.1"></head>
     
     
+
     
+    
+
+
+
+    
+
+    
+    
+
+
+
+
+    
+    
+
+
     <body>
         <script src="/js/darkmode-js.min.js"></script>
         
         <script>
-            const dkOptions = {
-                bottom: '53px', // default: '32px'
+            const options = {
+                bottom: '40px', // default: '32px'
                 right: 'unset', // default: '32px'
                 left: '42px', // default: 'unset'
                 time: '0.3s', // default: '0.3s'
@@ -80,19 +103,17 @@
                 label: '🌓', // default: ''
                 autoMatchOsTheme: true // default: true
             }
-            const darkmode = new Darkmode(dkOptions);
+            const darkmode = new Darkmode(options);
             darkmode.showWidget();
         </script>
         
         
-            <div class="left-toc-container">
-                <nav id="toc" class="bs-docs-sidebar"></nav>
-            </div>
+            
         
         <div class="paper">
+
             
-            
-            
+
             
                 <div class="shadow-drop-2-bottom paper-main">
                     
@@ -100,14 +121,26 @@
 
 <div class="header">
     <div class="header-container">
-        <img style="
-        width: 56px;
-        height: auto;border-radius: 6px;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/favicon.webp" width="10%"></img>
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 0; 
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/favicon.webp" 
+        />
         <div class="header-content">
-            <a class="logo" href="/">Andrew</a> 
+            <a class="logo" href="/">安德鲁</a> 
             <span class="description"></span> 
         </div>
-        
     </div>
     
    
@@ -130,25 +163,24 @@
             
         
             
-                <li><a href="/message/">留言</a></li>
-            
-        
-            
                 <li><a href="/about/">关于</a></li>
             
         
     </ul>
-</div> 
-        
+</div>
+
                     
                     
 
                     
                     
-                    
+
                     <!--说明是文章post页面-->
                     
                         <div class="post-main">
+    
+
+    
 
     
 
@@ -156,7 +188,7 @@
         
             
         
-        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h3 id="将-obj-或-class-写的方法通过-es6-解构出来会导致-this-不能再访问到-obj-自身亦或者-constructor-中的变量"><a href="#将-obj-或-class-写的方法通过-es6-解构出来会导致-this-不能再访问到-obj-自身亦或者-constructor-中的变量" class="headerlink" title="将 obj 或 class 写的方法通过 es6 解构出来会导致,this 不能再访问到 obj 自身亦或者 constructor 中的变量"></a>将 obj 或 class 写的方法通过 es6 解构出来会导致,this 不能再访问到 obj 自身亦或者 constructor 中的变量</h3><ul>
+        <div class=".article-gallery"><h3 id="将-obj-或-class-写的方法通过-es6-解构出来会导致-this-不能再访问到-obj-自身亦或者-constructor-中的变量"><a href="#将-obj-或-class-写的方法通过-es6-解构出来会导致-this-不能再访问到-obj-自身亦或者-constructor-中的变量" class="headerlink" title="将 obj 或 class 写的方法通过 es6 解构出来会导致,this 不能再访问到 obj 自身亦或者 constructor 中的变量"></a>将 obj 或 class 写的方法通过 es6 解构出来会导致,this 不能再访问到 obj 自身亦或者 constructor 中的变量</h3><ul>
 <li>解决方法:<ol>
 <li>不使用解构</li>
 <li>将公用的方法另外写一个 function 不挂载在 this 上</li>
@@ -179,12 +211,7 @@
 
 <h3 id="页面定时器要在全局作用域，用对象来管理，避免遗漏关闭定时器的问题，减少查找花费时间"><a href="#页面定时器要在全局作用域，用对象来管理，避免遗漏关闭定时器的问题，减少查找花费时间" class="headerlink" title="页面定时器要在全局作用域，用对象来管理，避免遗漏关闭定时器的问题，减少查找花费时间"></a>页面定时器要在全局作用域，用对象来管理，避免遗漏关闭定时器的问题，减少查找花费时间</h3><h3 id="不要用-这样来判断对象值-因为不管-有值或者没值其返回的结果会是-false"><a href="#不要用-这样来判断对象值-因为不管-有值或者没值其返回的结果会是-false" class="headerlink" title="不要用 !{} 这样来判断对象值, 因为不管{}有值或者没值其返回的结果会是 false"></a>不要用 !{} 这样来判断对象值, 因为不管{}有值或者没值其返回的结果会是 false</h3><h3 id="在-vue2-中，父组件使用-v-model-传值，子组件需要通过-props-value-来接收，this-emit-‘input’-’’-来修改值"><a href="#在-vue2-中，父组件使用-v-model-传值，子组件需要通过-props-value-来接收，this-emit-‘input’-’’-来修改值" class="headerlink" title="在 vue2 中，父组件使用 v-model 传值，子组件需要通过 props:{ value:{} }来接收，this.$emit(‘input’,’’) 来修改值"></a>在 vue2 中，父组件使用 v-model 传值，子组件需要通过 props:{ value:{} }来接收，this.$emit(‘input’,’’) 来修改值</h3><h3 id="在-vue2-中，computed-只读不可写，若要手动修改，需要给-computed-设置-set-方法在其中修改"><a href="#在-vue2-中，computed-只读不可写，若要手动修改，需要给-computed-设置-set-方法在其中修改" class="headerlink" title="在 vue2 中，computed 只读不可写，若要手动修改，需要给 computed 设置 set 方法在其中修改"></a>在 vue2 中，computed 只读不可写，若要手动修改，需要给 computed 设置 set 方法在其中修改</h3><h3 id="循环对象时顺序不是有序的"><a href="#循环对象时顺序不是有序的" class="headerlink" title="循环对象时顺序不是有序的"></a>循环对象时顺序不是有序的</h3><h3 id="css-中：选择并列-dom-的最后一个元素的选择器是-last-child-选择同类型的元素的第-n-个-用-nth-of-type-第几个-n"><a href="#css-中：选择并列-dom-的最后一个元素的选择器是-last-child-选择同类型的元素的第-n-个-用-nth-of-type-第几个-n" class="headerlink" title="css 中：选择并列 dom 的最后一个元素的选择器是 last-child:{}; 选择同类型的元素的第 n 个 用 nth-of-type( 第几个 * n):{}"></a>css 中：选择并列 dom 的最后一个元素的选择器是 last-child:{}; 选择同类型的元素的第 n 个 用 nth-of-type( 第几个 * n):{}</h3><h3 id="在书写复杂的逻辑时，一定要避免冗余或无用的变量，影响自己的逻辑判断"><a href="#在书写复杂的逻辑时，一定要避免冗余或无用的变量，影响自己的逻辑判断" class="headerlink" title="在书写复杂的逻辑时，一定要避免冗余或无用的变量，影响自己的逻辑判断"></a>在书写复杂的逻辑时，一定要避免冗余或无用的变量，影响自己的逻辑判断</h3><h3 id="vue2-0-切换路由使用-keep-alive-缓存失败-vue3-0-现切换成该形式"><a href="#vue2-0-切换路由使用-keep-alive-缓存失败-vue3-0-现切换成该形式" class="headerlink" title="vue2.0 切换路由使用 keep-alive 缓存失败,vue3.0 现切换成该形式:"></a>vue2.0 切换路由使用 keep-alive 缓存失败,vue3.0 现切换成该形式:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view v-slot=<span class="string">&quot;&#123; Component &#125;&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">&quot;Component&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span></span><br><span class="line">&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="在-vue-中-不可通过-v-html-来生成带数据侦测的模板-不然会失去响应"><a href="#在-vue-中-不可通过-v-html-来生成带数据侦测的模板-不然会失去响应" class="headerlink" title="在 vue 中: 不可通过 v-html 来生成带数据侦测的模板,不然会失去响应"></a>在 vue 中: 不可通过 v-html 来生成带数据侦测的模板,不然会失去响应</h3><h3 id="在-js-中-判断点击的是否是目标元素-给目标元素添加自定义属性-给点击区域绑定事件-点击事件拿到点击目标-判断是否有自定义属性，从而判断是否是目标元素"><a href="#在-js-中-判断点击的是否是目标元素-给目标元素添加自定义属性-给点击区域绑定事件-点击事件拿到点击目标-判断是否有自定义属性，从而判断是否是目标元素" class="headerlink" title="在 js 中: 判断点击的是否是目标元素: 给目标元素添加自定义属性,给点击区域绑定事件,点击事件拿到点击目标,判断是否有自定义属性，从而判断是否是目标元素"></a>在 js 中: 判断点击的是否是目标元素: 给目标元素添加自定义属性,给点击区域绑定事件,点击事件拿到点击目标,判断是否有自定义属性，从而判断是否是目标元素</h3><h3 id="css-中：-外层元素点击影响内层元素-给内层元素加-position-relative-则层级比默认元素高-会优先点击到"><a href="#css-中：-外层元素点击影响内层元素-给内层元素加-position-relative-则层级比默认元素高-会优先点击到" class="headerlink" title="css 中： 外层元素点击影响内层元素,给内层元素加 position:relative; 则层级比默认元素高,会优先点击到"></a>css 中： 外层元素点击影响内层元素,给内层元素加 position:relative; 则层级比默认元素高,会优先点击到</h3></div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
-        var options1 = {
-            selector: '.gallery-item'
-        };
-        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1);
-        }</script>
+<h3 id="在-vue-中-不可通过-v-html-来生成带数据侦测的模板-不然会失去响应"><a href="#在-vue-中-不可通过-v-html-来生成带数据侦测的模板-不然会失去响应" class="headerlink" title="在 vue 中: 不可通过 v-html 来生成带数据侦测的模板,不然会失去响应"></a>在 vue 中: 不可通过 v-html 来生成带数据侦测的模板,不然会失去响应</h3><h3 id="在-js-中-判断点击的是否是目标元素-给目标元素添加自定义属性-给点击区域绑定事件-点击事件拿到点击目标-判断是否有自定义属性，从而判断是否是目标元素"><a href="#在-js-中-判断点击的是否是目标元素-给目标元素添加自定义属性-给点击区域绑定事件-点击事件拿到点击目标-判断是否有自定义属性，从而判断是否是目标元素" class="headerlink" title="在 js 中: 判断点击的是否是目标元素: 给目标元素添加自定义属性,给点击区域绑定事件,点击事件拿到点击目标,判断是否有自定义属性，从而判断是否是目标元素"></a>在 js 中: 判断点击的是否是目标元素: 给目标元素添加自定义属性,给点击区域绑定事件,点击事件拿到点击目标,判断是否有自定义属性，从而判断是否是目标元素</h3><h3 id="css-中：-外层元素点击影响内层元素-给内层元素加-position-relative-则层级比默认元素高-会优先点击到"><a href="#css-中：-外层元素点击影响内层元素-给内层元素加-position-relative-则层级比默认元素高-会优先点击到" class="headerlink" title="css 中： 外层元素点击影响内层元素,给内层元素加 position:relative; 则层级比默认元素高,会优先点击到"></a>css 中： 外层元素点击影响内层元素,给内层元素加 position:relative; 则层级比默认元素高,会优先点击到</h3></div>
     </div>
 
     <div class="post-meta">
@@ -194,10 +221,18 @@
     </div>
     <br>
     
-    <!-- <div class="post-footer-pre-next">
-        <span>上一篇：<a href=""></a></span>
-        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
-    </div> -->
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+
+                
+            </div>
+    
+        
+    
 
     
         
@@ -207,27 +242,29 @@
 
 
 
-                                      
+
                     
-                    
+
                     <div class="footer">
     
         <span> 
-            © 2023-2025 
+             
 
             
                 
 
             
         </span>
+       
     
 </div>
+
+
+
 <!--这是指一条线往下的内容-->
 <div class="footer-last">
     
             <span>永远相信美好的事情即将发生</span>
-            
-                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
             
     
 </div>
@@ -266,14 +303,59 @@
 
 
 
-<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
 
 
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
 
                 </div>
             
             
-                <!-- 回到顶部的按钮-->  
+                <!-- 回到顶部的按钮-->
                 <div class="progress-wrap shadow-drop-2-bottom">
                     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
@@ -281,7 +363,7 @@
                 </div>
             
             
-                <!-- 返回的按钮-->  
+                <!-- 返回的按钮-->
                 <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
                     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
@@ -290,3 +372,9 @@
             
     </body>
 </html>
+<script src="/js/emojiHandler.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        wrapEmojis('.paper');
+    });
+</script>
